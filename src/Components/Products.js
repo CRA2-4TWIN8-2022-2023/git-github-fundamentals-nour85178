@@ -3,6 +3,7 @@ import products from "../products.json";
 import { Component } from "react";
 import Product from "./Product";
 import Alert from 'react-bootstrap/Alert';
+import { getallProducts } from "../service/api";
 class Products extends Component {
   
   constructor(props) {

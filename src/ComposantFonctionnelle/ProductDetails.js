@@ -1,11 +1,26 @@
 import React from 'react'
+import { useEffect, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
-import products from "../products.json";
+import { getProductById } from "../service/api";
 
 function ProductDetails() {
+    const {id} = useParams();
+    const [product, setProduct] = useState([]);
     const {name} = useParams();
-    const product = products.find((product)=>product.name === name);
+   // const product = products.find((product)=>product.name === name);
+
+   useEffect(() => {
+      getProductById(id).then((data) => {
+      console.log(data)
+      setProduct(data);
+      //{product.id !== undefined? <Row>…</Row> : "Product does not exist" }
+
+      });
+      
+      },[]);
+
+
   return (
     <Container style={{ marginTop: "30px" }}>
         <Row>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import CardGroup from "react-bootstrap/CardGroup";
-import products from "../products.json";
+//import products from "../products.json";
 import ProductFunc from "./ProductFunc";
 import Alert from 'react-bootstrap/Alert';
+import {getallProducts } from "../service/api";
 function ProductsFunc(props) {
+    const [products, setProducts] =useState([]);
     const [showAlert,setshowAlert]=useState(false);
     const [showWelcome,setshowWelcome]=useState(true);
     
@@ -30,6 +32,12 @@ function ProductsFunc(props) {
         },3000);
       
       })
+
+      useEffect(() => {
+         getallProducts().then(products =>setProducts(products));
+        }, []);
+
+
     return ( <>
      {showWelcome && (
           <Alert variant="success">Welcome to our store!</Alert>

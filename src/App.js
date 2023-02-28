@@ -92,12 +92,12 @@ function App() {
       <Route path="/Contact/:id" element={<Contact/>}></Route>
       <Route path="/acceuil" element={<Acceuil/>}></Route> */}
        <Route path='/products'>
-      <Route index element={<ProductsFunc />}/>
+      <Route index element={<ProductsFunc/>}/>
 
       {/* ProductDetails est un composant fonctionnel ProductDetails qui permet d'afficher un produit selon le nom */}
-      <Route path=':name' element={<ProductDetails />}/>
+      <Route path=':id' element={<ProductDetails/>}/>
     </Route>
-      <Route path="*" element={<NotFound />}></Route>
+      <Route path="*" element={<NotFound/>}></Route>
     </Routes>
     </Suspense>
       
